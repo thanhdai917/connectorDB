@@ -1,9 +1,8 @@
 <?php
 
-use JetBrains\PhpStorm\ArrayShape;
-use Libs\DBConnector\DBConnector;
-use Libs\DBConnector\DBConnectorException;
-use Libs\DBConnector\ClickHouse\ClickHouseConnector;
+use Skeleton\ConnectorDb\Manager\DBConnector;
+use Skeleton\ConnectorDb\Manager\DBConnectorException;
+use Skeleton\ConnectorDb\Manager\ClickHouse\ClickHouseConnector;
 
 if (!function_exists('connectDatabase')) {
     /**
