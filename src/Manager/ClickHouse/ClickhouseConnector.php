@@ -191,6 +191,14 @@ class ClickHouseConnector implements DBConnector {
         return $response->getBody()->detach();
     }
 
+    public function putQueryToDatabase($sql, $bindParams = []) {
+        $response = $this->sendQuery($sql, $bindParams);
+        return new ClickHouseSelectResult(
+            $response,
+            $sql,
+            $bindParams
+        );
+    }
     /**
      * @param        $table
      * @param        $columns
