@@ -22,8 +22,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Http;
 use Skeleton\ConnectorDb\Manager\Column;
 use Skeleton\ConnectorDb\Manager\DBConnector;
+use Skeleton\ConnectorDb\Manager\Utils\EmulateBindParam;
 
 class ClickHouseConnector implements DBConnector {
+    use EmulateBindParam;
 
     const DEFAULT_PORT = 8123;
     const DEFAULT_HOST = 'localhost';

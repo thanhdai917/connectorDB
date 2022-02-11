@@ -9,7 +9,11 @@
     "autoload": {
         "psr-4": {
             "Skeleton\\ConnectorDb\\": "src/"
-        }
+        },
+        "files": [
+          "helpers/database_connector.php",
+          "helpers/datetime.php"
+        ]
     },
     "minimum-stability": "dev",
     "require": {
