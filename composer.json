@@ -18,12 +18,5 @@
       "ext-json": "*",
       "guzzlehttp/guzzle": "^7.0.1",
       "smi2/phpclickhouse": "dev-master"
-    },
-    "extra": {
-        "laravel": {
-          "providers": [
-            "Skeleton\\ConnectorDb\\ConnectorDBServiceProvider"
-          ]
-        }
-      }
+    }
 }
