@@ -192,7 +192,7 @@ class ClickHouseConnector implements DBConnector {
     }
 
     public function putQueryToDatabase($sql) {
-        $this->sendQuery($sql, $bindParams);
+        $this->sendQuery($sql, []);
         return true;
     }
     /**
