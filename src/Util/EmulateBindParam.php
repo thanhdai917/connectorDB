@@ -1,19 +1,37 @@
 <?php
 
 
-namespace Skeleton\ConnectorDb\Manager\Utils;
+namespace Sk3\Clickhouse\Util;
 
 
-use Skeleton\ConnectorDb\Manager\DBConnectorException;
+use Sk3\Clickhouse\DBConnectorException;
 
 trait EmulateBindParam {
     /**
      * Override this
-     * @param string|null $value
-     *
+     * @param mixed  $value
+     * @param null $type
      * @return string
      */
-    public static abstract function escapeValue(string|null $value): string;
+    static function escapeValue($value, $type = NULL): string {
+        if (is_array($value) || is_object($value)) {
+            $value = json_encode($value);
+        }
+        if (is_null($value)) {
+            $raw = 'NULL';
+        } else if (is_bool($value)) {
+            $raw = $value ? 'TRUE' : 'FALSE';
+        } else if (is_numeric($value)) {
+            $raw = (string) $value;
+        } else {
+            $value = str_replace("'", "''", (string) $value);
+            $raw = "'{$value}'";
+        }
+        if ($type) {
+            return "CAST($raw AS $type)";
+        }
+        return $raw;
+    }
 
     /**
      * @throws DBConnectorException

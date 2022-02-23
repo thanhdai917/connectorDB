@@ -1,26 +1,23 @@
 {
-    "name": "sk3/connectordb",
-    "authors": [
-      {
-        "name": "Thanh dai",
-        "email": "thanhdai917@gmail.com"
-      }
-    ],
+    "name": "sk3/clickhouse",
+    "description": "Module Clickhouse",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "illuminate/http": "~9.0",
+        "php": ">=8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "smi2/phpclickhouse": "dev-master"
+    },
     "autoload": {
         "psr-4": {
-            "Skeleton\\ConnectorDb\\": "src/"
+            "Sk3\\Clickhouse\\": "src/"
         },
         "files": [
-          "helpers/database_connector.php",
-          "helpers/datetime.php"
+            "src/helpers/database_connector.php"
         ]
     },
     "minimum-stability": "dev",
-    "require": {
-      "illuminate/http": "~8.0",
-      "php": ">=8.0",
-      "ext-json": "*",
-      "guzzlehttp/guzzle": "^7.0.1",
-      "smi2/phpclickhouse": "dev-master"
-    }
+    "prefer-stable": true
 }

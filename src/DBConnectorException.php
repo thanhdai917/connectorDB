@@ -1,8 +1,5 @@
 <?php
-
-
-namespace Skeleton\ConnectorDb\Manager;
-
+namespace Sk3\Clickhouse;
 
 class DBConnectorException extends \Exception {
 

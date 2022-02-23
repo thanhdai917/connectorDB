@@ -1,14 +1,12 @@
 <?php
 
 
-namespace Skeleton\ConnectorDb\Manager;
-
-
+namespace Sk3\Clickhouse;
 use Illuminate\Support\Collection;
 
 interface SelectResult {
     /**
-     * @return Column[]|Collection Collection of column
+     * @return Collection Collection of column
      */
     public function getColumns(): Collection;
 
@@ -17,10 +15,11 @@ interface SelectResult {
      *
      * @return Collection Collection of row
      */
-    public function getRows(int $limit = NULL): Collection;
+
+    public function fetchAll(int $limit = NULL): Collection;
 
     /**
-     * @return string
+     * @return array of row
      */
-    public function getFinalQuery(): string;
+    public function fetchOne(): array;
 }
